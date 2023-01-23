@@ -1,0 +1,34 @@
+.nav{
+    display: flex;
+    background-color: white;
+}
+
+h1{
+    color: gray;
+    margin: 0px;
+    /* CHANGE FONT */
+}
+
+.line{
+    height: 2px;
+    width: auto;
+    background-color: black;
+}
+
+.navOpt{
+    color: blue;
+    background-color: white;
+    border: 5px;
+    border-color: white;
+    padding: 0px 15px 0px 15px;
+    float: right;
+}
+button:hover{
+    cursor: pointer;
+    background-color: aqua;
+}
+
+.navOpt:active{
+    background-color: lightgrey;
+    color: black;
+}
