@@ -2,7 +2,7 @@
 Lab 2 of SEG3125 focusing on Javascript <br>
 
 ## Lab Requirements
-<br>
+
 - The name of the grocery store
 - At least 10 possible products in the product list
 - Navigation between two or three zones depending on your information pooling
@@ -19,16 +19,16 @@ Lab 2 of SEG3125 focusing on Javascript <br>
 - Using JavaScript (separate files) to contain the script associated with the site
 
 ## Some basic description regarding the various pages
-<br>
+
 
 ### Customer Page
-<br>
+
 The Customer page allows the user to select whether he is vegetarian or allergic to gluten
 
 ### Products Page
-<br>
+
 The products page shows a subset of products based on user dietary restrictions
 
 ### Cart Page
-<br>
+
 The Cart page shows what is in the cart and the total.
