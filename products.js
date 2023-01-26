@@ -85,6 +85,20 @@ var products = [
         glutenFree: true,
         organic: false,
         price: 7.50
+    },
+    {
+        name: "Specialty Spices",
+        vegetarian: true,
+        glutenFree: false,
+        organic: true,
+        price: 17.50
+    },
+    {
+        name: "Lettuce",
+        vegetarian: true,
+        glutenFree: true,
+        organic: true,
+        price: 4.99
     }
 ];
 
@@ -96,8 +110,8 @@ var products = [
 *
 */
 
-function availChoices(productList, restriction) {
-
+function availChoices(productList, restriction, restriction2) {
+    
 
 };
 
@@ -110,5 +124,11 @@ function availChoices(productList, restriction) {
 */
 function getTotalPrice(selectedProducts) {
     totalPrice = 0;
-    return totalPrice;
+    totalPrice = 0;
+	for (let i=0; i<products.length; i+=1) {
+		if (selectedProducts.indexOf(products[i].name) > -1){
+			totalPrice += products[i].price;
+		}
+	}
+	return totalPrice;
 };

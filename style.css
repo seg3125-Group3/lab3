@@ -28,7 +28,17 @@ button:hover{
     background-color: aqua;
 }
 
-.navOpt:active{
+.navOpt button.active{
     background-color: lightgrey;
     color: black;
+}
+
+.pageContent{
+    display: none;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0; 
+
 }
