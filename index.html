@@ -15,10 +15,10 @@
     <!-- Navbar -->
     <div class="nav">
         <!-- name of the grocery store -->
-        <h1>SEG3125 Online Grocer</h1>
-        <button class="navOpt">Client</button>
-        <button class="navOpt">Products</button>
-        <button class="navOpt">Cart</button>
+        <h1>The Minimalist Online Grocer</h1>
+        <button class="navOpt" onclick=" tabChange(event,'Client')">Client</button>
+        <button class="navOpt" onclick=" tabChange(event,'Product')">Products</button>
+        <button class="navOpt" onclick=" tabChange(event,'Cart')">Cart</button>
     </div>
 
     <div class="line"></div>
@@ -28,13 +28,23 @@
         <h3>Client Information</h3>
         <p>Tell us a bit about you.</p>
         Choose a Category:
-        <select id="dietSelect" name="dietSelect" onchange="availListProductChoices(this.id, 'displayProduct')">
+        <div onchange="availProductChoices(dietSelect.id, 'displayProduct', dietSelect2.id)">
+        <select id="dietSelect" name="dietSelect">
             <option value=""></option>
             <option value="Vegetarian">Vegetarian</option>
             <option value="GlutenFree">GlutenFree</option>
             <option value="Organic">Organic</option>
             <option value="None">None</option>
         </select>
+        <p>If applicable select another Category: </p>
+        <select id="dietSelect2" name="dietSelect2">
+            <option value=""></option>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="GlutenFree">GlutenFree</option>
+            <option value="Organic">Organic</option>
+            <option value="None">None</option>
+        </select>
+    </div>
 
     </div>
 
@@ -60,12 +70,12 @@
 
     </div>
 
-
+    <div class="footer">
+        <footer>Site Created By: Keon, Khalid, Owen and Shivan</footer>
+    </div>
+    
     <script src="products.js"></script>
     <script src="main.js"></script>
-    
-
-    <footer>Site Created By: Keon, Khalid, Owen and Shivan</footer>
 </body>
 
 </html>
