@@ -76,5 +76,26 @@ function availProductChoices(slct1, slct2,slct3) {
 // Function that generates a text of all selected items that were shown to the user 
 // this function will then insert the paragragh of items and total cost on the appropriate page
 function selectedItems() {
+    var ele = document.getElementsByName("product");
+	var chosenProducts = [];
+	
+	var c = document.getElementById('displayCart');
+	c.innerHTML = "";
+	
+	// build list of selected item
+	var para = document.createElement("P");
+	para.innerHTML = "You selected : ";
+	para.appendChild(document.createElement("br"));
+	for (i = 0; i < ele.length; i++) { 
+		if (ele[i].checked) {
+			para.appendChild(document.createTextNode(ele[i].value));
+			para.appendChild(document.createElement("br"));
+			chosenProducts.push(ele[i].value);
+		}
+	}
+		
+	// add paragraph and total price
+	c.appendChild(para);
+	c.appendChild(document.createTextNode("Total Price is " + getTotalPrice(chosenProducts)));
   
 }
