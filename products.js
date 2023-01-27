@@ -112,7 +112,22 @@ var products = [
 
 function availChoices(productList, restriction, restriction2) {
     
+var productsRestrict = [];
+	for (let i = 0; i < productList.length; i++) {
+	 if ((restriction == "Vegetarian") && (productList[i].vegetarian == true)) {
+			productsRestrict.push(productList[i]);
+		}
+		else if ((restriction == "GlutenFree") && (productList[i].glutenFree == true)) {
+			productsRestrict.push(productList[i]);
+		}
+		
+		else if (restriction == "None") {
+			productsRestrict.push(productList[i]);
+		}
 
+	}
+	productsRestrict.sort(function(a, b){return a.price - b.price});
+	return productsRestrict;
 };
 
 
