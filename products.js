@@ -110,7 +110,54 @@ var products = [
 *
 */
 
-function availChoices(productList, restriction, restriction2) {
+function availChoices(productList,restriction, restriction2) {
+
+    if(restriction == "GlutenFree"){
+        restriction = "glutenFree";
+    }
+    else if(restriction == "Organic"){
+        restriction ="organic";
+    }
+
+    else if(restriction == "Vegetarian"){
+        restriction = "vegetarian";
+    }
+    if(restriction2 == "GlutenFree"){
+        restriction2 = "glutenFree";
+    }
+    else if(restriction2 == "Organic"){
+        restriction2 ="organic";
+    }
+
+    else if(restriction2 == "Vegetarian"){
+        restriction2 = "vegetarian";
+    }
+
+    var productsWithRestriction;
+    console.log("one", restriction=="None",restriction2);
+
+    if((restriction!="None" && restriction!="") && (restriction2!="None" && restriction2!="")){
+        console.log("five")
+        productsWithRestriction = productList.filter(item => item[restriction]==true || item[restriction2]==true);
+    }
+
+    else if(restriction!="" || restriction!="None"){
+        console.log("four")
+        productsWithRestriction = productList.filter(item => item[restriction]==true);
+    }
+
+    else if(restriction2!="" || restriction2!="None"){
+        console.log("three")
+        productsWithRestriction = productList.filter(item => item[restriction2]==true);
+    }
+
+    else{
+        console.log("here")
+        productsWithRestriction = productList;
+    }
+    console.log("two",productsWithRestriction)
+    return productsWithRestriction;
+
     
 
 };

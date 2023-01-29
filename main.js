@@ -29,6 +29,7 @@ function availProductChoices(slct1, slct2,slct3) {
 
     // obtain a reduced list of products based on restrictions
     var optionArray = availChoices(products, s1.value, s3.value);
+    console.log(optionArray)
 
     //SORT THE ARRAY PRICE LOW TO HIGH FROM HERE ON OPTIONARRAY
     for (let i = 0; i < optionArray.length; i++) {
@@ -50,7 +51,8 @@ function availProductChoices(slct1, slct2,slct3) {
     // for each item in the array, create a checkbox element, each containing information such as:
     // <input type="checkbox" name="product" value="Bread">
     // <label for="Bread">Bread/label><br>
-
+ 
+    
     for (i = 0; i < optionArray.length; i++) {
 
         var productName = optionArray[i];
@@ -64,7 +66,7 @@ function availProductChoices(slct1, slct2,slct3) {
         // create a label for the checkbox, and also add in HTML DOM
         var label = document.createElement('label')
         label.htmlFor = productName;
-        label.appendChild(document.createTextNode(productName + " - Price: $" + products[i].price));
+        label.appendChild(document.createTextNode(productName.name + " - Price: $" + products[i].price));
         s2.appendChild(label);
 
         // create a breakline node and add in HTML DOM
