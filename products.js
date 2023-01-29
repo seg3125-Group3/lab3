@@ -35,7 +35,7 @@ var products = [
         vegetarian: true,
         glutenFree: true,
         organic: true,
-        price: 6.99
+        price: 4.99
     },
     {
         name: "Bread",
@@ -84,21 +84,7 @@ var products = [
         vegetarian: false,
         glutenFree: true,
         organic: false,
-        price: 7.50
-    },
-    {
-        name: "Specialty Spices",
-        vegetarian: true,
-        glutenFree: false,
-        organic: true,
-        price: 17.50
-    },
-    {
-        name: "Lettuce",
-        vegetarian: true,
-        glutenFree: true,
-        organic: true,
-        price: 4.99
+        price: 7.51
     }
 ];
 
@@ -110,54 +96,48 @@ var products = [
 *
 */
 
-function availChoices(productList,restriction, restriction2) {
-
-    if(restriction == "GlutenFree"){
-        restriction = "glutenFree";
+function availChoices(productList, restriction, restriction2) {
+    let product_names = [];
+    for (let i = 0; i < productList.length; i += 1) {
+        if(restriction == restriction2){
+            if ((restriction=="Vegetarian") && (productList[i].vegetarian == true)){
+                product_names.push(productList[i]);
+            }
+            else if ((restriction=="GlutenFree") && (productList[i].glutenFree == true)){
+                product_names.push(productList[i]);
+            }
+            else if ((restriction=="Organic") && (productList[i].organic == true)){
+                product_names.push(productList[i]);
+            }
+            else if (restriction=="None"){
+                product_names.push(productList[i]);
+            }
+        }
+        else if ((restriction == "Vegetarian" && restriction2 == "" || restriction == "Vegetarian" && restriction2 == "None" || restriction == "" && restriction2 == "Vegetarian" || restriction == "None" && restriction2 == "Vegetarian") && (productList[i].vegetarian == true)) {
+            product_names.push(productList[i]);
+        }
+        else if ((restriction == "GlutenFree" && restriction2 == "" || restriction == "GlutenFree" && restriction2 == "None" || restriction == "" && restriction2 == "GlutenFree" || restriction == "None" && restriction2 == "GlutenFree") && (productList[i].glutenFree == true)) {
+            product_names.push(productList[i]);
+        }
+        else if ((restriction == "Organic" && restriction2 == "" || restriction == "Organic" && restriction2 == "None" || restriction == "" && restriction2 == "Organic" || restriction == "None" && restriction2 == "Organic") && (productList[i].organic == true)) {
+            product_names.push(productList[i]);
+        }
+        else if ((restriction == "None" && restriction2 == "") || (restriction == "" && restriction2 == "None")){
+            product_names.push(productList[i]);
+        }
+        else if ((restriction == "GlutenFree" && restriction2 == "Vegetarian" || restriction == "Vegetarian" && restriction2 == "GlutenFree") && (productList[i].glutenFree == true && productList[i].vegetarian == true)) {
+            product_names.push(productList[i]);
+        }
+        else if ((restriction == "GlutenFree" && restriction2 == "Organic" || restriction == "Organic" && restriction2 == "GlutenFree") && (productList[i].glutenFree == true && productList[i].organic == true)) {
+            product_names.push(productList[i]);
+        }
+        else if ((restriction == "Organic" && restriction2 == "Vegetarian" || restriction == "Vegetarian" && restriction2 == "Organic") && (productList[i].organic == true && productList[i].vegetarian == true)) {
+            product_names.push(productList[i]);
+        }
+        
+        
     }
-    else if(restriction == "Organic"){
-        restriction ="organic";
-    }
-
-    else if(restriction == "Vegetarian"){
-        restriction = "vegetarian";
-    }
-    if(restriction2 == "GlutenFree"){
-        restriction2 = "glutenFree";
-    }
-    else if(restriction2 == "Organic"){
-        restriction2 ="organic";
-    }
-
-    else if(restriction2 == "Vegetarian"){
-        restriction2 = "vegetarian";
-    }
-
-    var productsWithRestriction;
-    console.log("one", restriction=="None",restriction2);
-
-    if((restriction!="None" && restriction!="") && (restriction2!="None" && restriction2!="")){
-        console.log("five")
-        productsWithRestriction = productList.filter(item => item[restriction]==true || item[restriction2]==true);
-    }
-
-    else if((restriction=="None" || restriction=="") && (restriction2!="None" && restriction2!="")){
-        productsWithRestriction = productList.filter(item => item[restriction2]==true);
-    }
-    
-    else if((restriction2=="None" || restriction2=="") && (restriction!="None" && restriction!="")){
-        productsWithRestriction = productList.filter(item => item[restriction]==true);
-    }
-
-
-    else if((restriction=="None"||restriction=="") && (restriction2=="None" || restriction2=="")){
-        return productList;
-    }
-
-    console.log("two",productsWithRestriction)
-    return productsWithRestriction;
-
-    
+    return product_names;
 
 };
 

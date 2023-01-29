@@ -16,7 +16,7 @@
     <div class="nav">
         <!-- name of the grocery store -->
         <h1>The Minimalist Online Grocer</h1>
-        <button class="navOpt" onclick=" tabChange(event,'Client')">Client</button>
+        <button class="navOpt" onclick=" tabChange(event,'Client')">Customer Preferences</button>
         <button class="navOpt" onclick=" tabChange(event,'Product')">Products</button>
         <button class="navOpt" onclick=" tabChange(event,'Cart')">Cart</button>
     </div>
@@ -25,26 +25,29 @@
 
     <!-- Client page -->
     <div id="Client" class="pageContent">
-        <h3>Client Information</h3>
-        <p>Tell us a bit about you.</p>
-        Choose a Category:
+        <h3>Customer Information</h3>
+        <p>Tell us a bit about your food preferences.</p>
+        Choose a Dietary Restriction:
         <div onchange="availProductChoices(dietSelect.id, 'displayProduct', dietSelect2.id)">
-        <select id="dietSelect" name="dietSelect">
-            <option value=""></option>
-            <option value="Vegetarian">Vegetarian</option>
-            <option value="GlutenFree">GlutenFree</option>
-            <option value="Organic">Organic</option>
-            <option value="None">None</option>
-        </select>
-        <p>If applicable select another Category: </p>
-        <select id="dietSelect2" name="dietSelect2">
-            <option value=""></option>
-            <option value="Vegetarian">Vegetarian</option>
-            <option value="GlutenFree">GlutenFree</option>
-            <option value="Organic">Organic</option>
-            <option value="None">None</option>
-        </select>
-    </div>
+            <select id="dietSelect" name="dietSelect">
+                <option value=""></option>
+                <option value="Vegetarian">Vegetarian</option>
+                <option value="GlutenFree">GlutenFree</option>
+                <option value="Organic">Organic</option>
+                <option value="None">None</option>
+            </select>
+            <p>If you would like organic products select "Organic" below OR If applicable, select another restriction:
+            </p>
+            <select id="dietSelect2" name="dietSelect2">
+                <option value=""></option>
+                <option value="Vegetarian">Vegetarian</option>
+                <option value="GlutenFree">GlutenFree</option>
+                <option value="Organic">Organic</option>
+                <option value="None">None</option>
+            </select>
+        </div>
+        <br><br><br><br>
+        <p>Once you have made your choice(s) Click on the "Products" button on the top right of the page</p>
 
     </div>
 
@@ -59,6 +62,8 @@
             Add selected items to cart.
         </button>
 
+        <p>Once you have made your choice(s) and added to your cart CLICK on the "Cart" button on the top right of the page</p>
+
     </div>
 
 
@@ -66,14 +71,18 @@
     <div id="Cart" class="pageContent">
         <h3>Cart</h3>
         <p>Here is your cart.</p>
-        <div id="displayCart"></div>
+        <div id="displayCart">
+
+        </div>
+        <div id="toPay"></div>
+
 
     </div>
 
     <div class="footer">
         Site Created By: Keon, Khalid, Owen and Shivan
     </div>
-    
+
     <script src="products.js"></script>
     <script src="main.js"></script>
 </body>
