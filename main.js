@@ -19,7 +19,7 @@ function tabChange(e, tabName) {
 }
 
 //Function that will populate the page for the user to select what to purchase
-function availProductChoices(slct1, slct2,slct3) {
+function availProductChoices(slct1, slct2, slct3) {
     var s1 = document.getElementById(slct1);
     var s2 = document.getElementById(slct2);
     var s3 = document.getElementById(slct3)
@@ -27,35 +27,35 @@ function availProductChoices(slct1, slct2,slct3) {
     // s2 represents the <div> in the Products tab, which shows the product list, so we first set it empty
     s2.innerHTML = "";
 
-    // obtain a reduced list of products based on restrictions
-    var optionArray = availChoices(products, s1.value, s3.value);
-    console.log(optionArray)
+    //sorting array 'products' from lowest price to highest price   
+    for (var i = 0; i < products.length; i++) {
 
-    //SORT THE ARRAY PRICE LOW TO HIGH FROM HERE ON OPTIONARRAY
-    for (let i = 0; i < optionArray.length; i++) {
+        // Last i elements are already in place 
+        for (var j = 0; j < (products.length - i - 1); j++) {
 
-        //Inner pass
-        for (let j = 0; j < optionArray.length - i - 1; j++) {
-
-            //Value comparison using ascending order
-
+            // Checking if the item at present iteration
+            // is greater than the next iteration
             if (products[j + 1].price < products[j].price) {
 
-                //Swapping
-                [products[j + 1], products[j]] = [products[j], products[j + 1]]
+                // If the condition is true then swap them
+                var temp = products[j]
+                products[j] = products[j + 1]
+                products[j + 1] = temp
             }
         }
     }
+
+    // obtain a reduced list of products based on restrictions
+    var optionArray = availChoices(products, s1.value, s3.value);
 
 
     // for each item in the array, create a checkbox element, each containing information such as:
     // <input type="checkbox" name="product" value="Bread">
     // <label for="Bread">Bread/label><br>
- 
-    
+
     for (i = 0; i < optionArray.length; i++) {
 
-        var productName = optionArray[i];
+        var productName = optionArray[i].name;
         // create the checkbox and add in HTML DOM
         var checkbox = document.createElement("input");
         checkbox.type = "checkbox";
@@ -66,7 +66,7 @@ function availProductChoices(slct1, slct2,slct3) {
         // create a label for the checkbox, and also add in HTML DOM
         var label = document.createElement('label')
         label.htmlFor = productName;
-        label.appendChild(document.createTextNode(productName.name + " - Price: $" + products[i].price));
+        label.appendChild(document.createTextNode(productName + " - Price: $" + optionArray[i].price));
         s2.appendChild(label);
 
         // create a breakline node and add in HTML DOM
@@ -78,5 +78,28 @@ function availProductChoices(slct1, slct2,slct3) {
 // Function that generates a text of all selected items that were shown to the user 
 // this function will then insert the paragragh of items and total cost on the appropriate page
 function selectedItems() {
-  
+    var ele = document.getElementsByName("product");
+    var chosenProducts = [];
+
+    var c = document.getElementById('displayCart');
+    c.innerHTML = "";
+
+    // build list of selected item
+    var para = document.createElement("P");
+    para.innerHTML = "You selected : ";
+    para.appendChild(document.createElement("br"));
+    for (i = 0; i < ele.length; i++) {
+        if (ele[i].checked) {
+            para.appendChild(document.createTextNode(ele[i].value + " at Cost of $" + products[i].price));
+            para.appendChild(document.createElement("br"));
+            chosenProducts.push(ele[i].value);
+        }
+    }
+
+    // add paragraph and total price
+    c.appendChild(para);
+    var price = document.getElementById('toPay');
+    price.innerHTML = "";
+    price.appendChild(document.createTextNode("Total Price is " + getTotalPrice(chosenProducts)));
+
 }

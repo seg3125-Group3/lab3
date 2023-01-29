@@ -1,3 +1,6 @@
+body{
+    font-family: 'Maven Pro', sans-serif;
+}
 .nav{
     display: flex;
     background-color: white;
@@ -6,7 +9,8 @@
 h1{
     color: gray;
     margin: 0px;
-    /* CHANGE FONT */
+    font-family: cursive;
+    padding-right: 45%;
 }
 
 .line{
@@ -22,13 +26,14 @@ h1{
     border-color: white;
     padding: 0px 15px 0px 15px;
     float: right;
+    border-radius: 7px;
 }
-button:hover{
+.nav button:hover{
     cursor: pointer;
     background-color: aqua;
 }
 
-.navOpt button.active{
+.nav button.active{
     background-color: lightgrey;
     color: black;
 }
@@ -44,4 +49,9 @@ button:hover{
     width:100%;
     bottom: 0; 
 
+}
+
+#toPay{
+    font-size: larger;
+    color: red;
 }
