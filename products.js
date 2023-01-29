@@ -141,20 +141,19 @@ function availChoices(productList,restriction, restriction2) {
         productsWithRestriction = productList.filter(item => item[restriction]==true || item[restriction2]==true);
     }
 
-    else if(restriction!="" || restriction!="None"){
-        console.log("four")
+    else if((restriction=="None" || restriction=="") && (restriction2!="None" && restriction2!="")){
+        productsWithRestriction = productList.filter(item => item[restriction2]==true);
+    }
+    
+    else if((restriction2=="None" || restriction2=="") && (restriction!="None" && restriction!="")){
         productsWithRestriction = productList.filter(item => item[restriction]==true);
     }
 
-    else if(restriction2!="" || restriction2!="None"){
-        console.log("three")
-        productsWithRestriction = productList.filter(item => item[restriction2]==true);
+
+    else if((restriction=="None"||restriction=="") && (restriction2=="None" || restriction2=="")){
+        return productList;
     }
 
-    else{
-        console.log("here")
-        productsWithRestriction = productList;
-    }
     console.log("two",productsWithRestriction)
     return productsWithRestriction;
 
