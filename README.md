@@ -1,9 +1,10 @@
-# lab2
-Lab 2 of SEG3125 focusing on Javascript <br>
-Inspired by the provided example '[SEG3125-Module2-Grocery](https://github.com/carolinebarriere/carolinebarriere.github.io/tree/master/SEG3125-Module2-Grocery)' 
+# lab3
+Lab 3 of SEG3125 focusing on Javascript and interface design based on [Lab2](https://github.com/seg3125-Group3/lab2)<br>
+Inspired by the provided example '[SEG3125-Module2-Grocery](https://github.com/carolinebarriere/carolinebarriere.github.io/tree/master/SEG3125-Module2-Grocery)' <br>
+Any images displayed on the site are from the sources available in [images/ImageSources.txt](https://github.com/seg3125-Group3/lab3/blob/main/images/ImageSources.txt)
 
 ## Lab Requirements
-<br>
+
 - The name of the grocery store<br>
 - At least 10 possible products in the product list<br>
 - Navigation between two or three zones depending on your information pooling<br>
@@ -18,6 +19,13 @@ Inspired by the provided example '[SEG3125-Module2-Grocery](https://github.com/c
 - Website signature<br>
 - The use of external CSS (separate file) to set styles for titles, divisions, your signature at the bottom of the site. Explore font changes, colors, alignment etc., to make the site a little prettier. For this lab, your rating will be on the feature, so don't waste too much time here if you're just starting out.<br>
 - Using JavaScript (separate files) to contain the script associated with the site<br>
+
+### Some more requirements to be completed for Lab3  
+
+- Displaying images for each product<br>
+- Use of more Components/Widgets or modifying existing ones from lab2<br>
+- Adding the ability to filter/display products of a certain category (ex. Fruits, Vegetables, Meats, Dairy, etc.)<br>
+- Implement a different way to navigate the site (using progress bar, alternate buttons)
 
 ## Some basic description regarding the various pages
 
